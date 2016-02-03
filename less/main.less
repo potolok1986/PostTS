@@ -1,0 +1,56 @@
+@import "bootstrap";
+
+.panel {
+	margin-top: 50px;
+	border-radius: 6px;
+	.panel-heading {
+		padding: 5px;
+		border-radius: 6px 6px 0 0;
+	}
+}
+
+section {
+	padding: 25px;
+}
+.postsList {
+	padding: 15px;
+	height: calc(~"100vh - 260px");
+	min-height: 350px;
+	overflow-y: auto;
+	border: 1px solid #f5f5f5;
+	border-radius: 4px;
+	box-shadow: inset 1px 1px 1px 1px #c0c0c0;
+
+}
+
+.post {
+	border: 1px solid #e5e5e5;
+	border-radius: 4px;
+	box-shadow: 4px 4px 6px rgba(232, 232, 232, .7);
+	padding: 15px 15px 35px 15px;
+	position: relative;
+	margin-bottom: 15px;
+	.time {
+		left: 15px;
+		position: absolute;
+		bottom: 0;
+		p {
+			display: inline-block;
+			margin-right: 10px;
+			font-size: 10px;
+			color: gray;
+		}
+		.btn {
+			padding: 0;
+		}
+	}
+}
+[name="createPost"]{
+	textarea{
+		resize: none;
+		height: 250px;
+	}
+}
+.error{
+	color: red;
+}

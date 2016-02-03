@@ -1,0 +1,52 @@
+mixin post(text,time)
+	.post
+		p!= text
+		.time
+			p Опубликованно в&nbsp;
+				span!=time
+			button.btn.btn-danger Удалить
+doctype
+html(ng-app="postsApp")
+	head(lang="ru")
+	meta(charset="UTF-8")
+	link(rel="stylesheet" href="./css/main.css")
+	script(src="./js/main.js")
+	script(src="./js/controller.js")
+	title Заметки
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" href="https://rawgit.com/codefucker/finalReject/master/reject/reject.css" media="all" />
+	<script type="text/javascript" src="https://rawgit.com/codefucker/finalReject/master/reject/reject.min.js" data-text="Ваш браузер морально устарел и не поддерживает современные технологии, установите любой более современный браузер"></script>
+	<![endif]-->
+body
+	article.container.center-block(ng-controller="PostsController")
+		.row
+			.col-sm-12
+				.panel.panel-default
+					.panel-heading
+						h2.text-center.text-uppercase Ваши заметки
+					.panel-body
+						section.row
+							.col-sm-8
+								h4.text-center.text-uppercase Самые свежие заметки
+								.postsList
+									.post
+										p
+										.time
+											p Опубликованно&nbsp;
+												span
+											button.btn.btn-danger Удалить
+									.post
+										p Вы пока не создали ни одной заметки
+							.col-sm-4
+								h4.text-center.text-uppercase Создание новой заметки
+								form(name="createPost")
+									.form-group
+										textarea(name="postText" id="postText" placeholder="Новая заметка" required).form-control
+										p.js-minLength Осталось&nbsp;
+											span
+											|&nbsp;символов
+										p.js-maxLength Нужно ввести минимальное число символов
+										p.error Ой слишком ного символов
+									.form-group
+										input(type="submit" id="btnSubmit" value="Создать заметку").btn.btn-primary
+										label (Ctrl + Enter)
